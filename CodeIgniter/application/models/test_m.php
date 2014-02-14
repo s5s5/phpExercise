@@ -32,6 +32,30 @@ class Test_m extends CI_Model
         $query = $this->db->get('ci');
         return $query->result();
     }
+
+    function user_select2($uname)
+    {
+        $this->db->where('uname', $uname);
+        $this->db->select('*');
+        $query = $this->db->get('ci');
+        return $query->result();
+    }
+
+    function user_select_all()
+    {
+        $this->db->select('*');
+        $query = $this->db->get('ci');
+        return $query->result();
+    }
+
+    function user_select_limit($start, $end)
+    {
+        $this->db->select('*');
+        $this->db->limit($end, $start);
+        $query = $this->db->get('ci');
+        return $query->result();
+    }
+
 }
 
 ?>
